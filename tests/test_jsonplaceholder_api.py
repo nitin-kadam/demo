@@ -8,6 +8,7 @@ from unittest.mock import patch, MagicMock
 
 BASE_URL = "https://jsonplaceholder.typicode.com"
 
+
 class TestJSONPlaceholderAPI:
     """Test class for JSONPlaceholder API endpoints"""
     
