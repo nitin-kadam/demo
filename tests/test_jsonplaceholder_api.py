@@ -6,6 +6,7 @@ import pytest
 import requests
 from unittest.mock import patch, MagicMock
 
+
 BASE_URL = "https://jsonplaceholder.typicode.com"
 
 
