@@ -1,0 +1,25 @@
+# Environments
+.env
+venv/
+ENV/
+env/
+.venv/
+
+# Python cache / compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Vectorstore / local DB indexes
+vectorstore_index/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/

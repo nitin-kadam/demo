@@ -1,0 +1,49 @@
+name: Test JSONPlaceholder API
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Run tests daily at 9 AM UTC
+    - cron: '0 9 * * *'
+
+jobs:
+  test-api:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.9', '3.10', '3.11']
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Run simple API tests
+      run: |
+        python test_api.py
+    
+    - name: Run pytest tests
+      run: |
+        pytest tests/test_jsonplaceholder_api.py -v --tb=short
+    
+    - name: Generate coverage report
+      run: |
+        pytest tests/test_jsonplaceholder_api.py --cov=. --cov-report=xml --cov-report=term
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        files: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella

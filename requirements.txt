@@ -1,0 +1,15 @@
+langchain
+langchain-community
+sentence-transformers
+faiss-cpu
+pypdf
+pandas
+unstructured
+scikit-learn
+tiktoken
+
+# Testing dependencies
+requests
+pytest
+pytest-cov
+pytest-mock
