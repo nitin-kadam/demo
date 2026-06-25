@@ -4,6 +4,7 @@ def get_cricket_captain(team="India", format="T20"):
     """Fetch current captain info using a public cricket API (fallback to hardcoded if API fails)."""
     # Example using CricketData.org (replace with actual API and key if available)
     # This is a placeholder; you can replace with a real API and key
+    
     try:
         # Example endpoint (replace with real one)
         url = f"https://api.cricapi.com/v1/teams?apikey=YOUR_API_KEY&search={team}"
